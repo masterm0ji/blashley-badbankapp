@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadDiscoverBank</title>
+    <link rel="stylesheet" href="bank.css">
+    <script type="module" src="bank.js" defer></script>
+</head>
+<body>
+    <div id="bank">Bad Discover Bank coming to you soon!</div>
+
+    <template id="login">
+        <h1>Bad Discover Bank</h1>
+        <section>
+            <div class="navbar">
+                <a href="/home" onclick="onLinkClick(event)">Login</a>
+                <a href="/login" onclick="onLinkClick(event)">Logout</a>
+                <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+                <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+                <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+                <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+            </div>
+        </section>
+        <section>
+            
+            <div class="flexContainer">
+                <div class="logoContainer">
+                    <h3> Welcome to Bad Discover Bank</h3>
+                    <img class="logo" src="baddiscover.png" alt="Fake bank logo">
+                </div>
+                <div class="loginFormContainer">
+                    <h2>Login</h2>
+                    <form id="loginForm" method="post" action=""> 
+                        <label for="username">Username</label>
+                        <input id="username" name="user" type="text">
+                        <label for="password">Password</label>
+                        <input id="password" name ="userpass" type="password">
+                        <label> <input type="checkbox" name="remember"> Remember me</label>
+                        <button>Login</button>
+                    </form>
+                </div>
+        </section>
+    </template>
+
+    <template id="createAccount">
+        <h1>Bad Discover Bank</h1>
+        <section>
+            <div class="navbar">
+                <a href="/home" onclick="onLinkClick(event)">Login</a>
+                <a href="/login" onclick="onLinkClick(event)">Logout</a>
+                <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+                <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+                <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+                <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+            </div>
+        </section>
+        <section>
+            <h2>Create Acccount</h2>
+        </section>
+        <section>
+            <form class="createAccount" action="javascript:create()">
+                <label for="username">Username</label>
+                <input id="username" name="user" type="text" maxlength="20" required >
+                <br><label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+                <br><label for="password">Password</label>
+                <input id="password" name="password" type="password" maxlength="16" minlength="8" required>
+                <br><button>Create Account</button>
+            </form>
+        </section>
+    </template>
+
+    <template id="home">
+        <header>
+            <h1>Bad Discover Bank</h1>
+            <div class="navbar">
+                <a class="active" href="#" onclick="onLinkClick(event)">Home</a>
+                <a href="/login" onclick="onLinkClick(event)">Logout</a>
+                <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+                <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+                <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+                <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+            </div>
+        </header>
+        <section>
+            <p id="welcomeMessage">Hi <span id="username"></span>,</p>
+            <p id="balance">Balance: $<span id="balanceAmount"></span></p>
+            <button id="logoutButton">Logout</button>
+        </section>
+        <section>
+            <h2>Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </section>
+    </template>
+
+    <template id="deposit">
+        <h1>Bad Discover Bank</h1>
+        <section>
+        <div class="navbar">
+            <a href="/home" onclick="onLinkClick(event)">Login</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+            <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+            <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+            <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+            <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+        </div>    
+        </section>
+        <section><h2>Deposit</h2></section>
+        <section>
+            <form id="depositForm" method="post" action=""> 
+                <label for="balance">Balance</label>
+                <input id="balance" name="balance" type="number" value="0" readonly>
+                <br><label for="depositAmount">Deposit Amount</label>
+                <input id="depositAmount" name ="depositAmount" type="number" required>
+                <button type ="submit">Deposit</button>
+            </form>
+        </section>
+    </template>
+
+    <template id="withdraw">
+        <h1>Bad Discover Bank</h1>
+        <section>
+        <div class="navbar">
+            <a href="/home" onclick="onLinkClick(event)">Login</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+            <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+            <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+            <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+            <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+        </div>    
+        </section>
+        <section><h2>Withdraw</h2></section>
+        <section>
+            <form id="withdrawForm" method="post" action=""> 
+                <label for="balance">Balance</label>
+                <input id="balance" name="balance" type="number" value="0" readonly>
+                <br><label for="depositAmount">Withdraw Amount</label>
+                <input id="withdrawAmount" name ="withdrawAmount" type="number" required>
+                <button type ="submit">Withdraw</button>
+            </form>
+        </section>
+    </template>
+    <template id="allData">
+        <h1>Bad Discover Bank</h1>
+        <section>
+        <div class="navbar">
+            <a href="/home" onclick="onLinkClick(event)">Login</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+            <a href="/createAccount" onclick="onLinkClick(event)">Create Account</a>
+            <a href="/deposit" onclick="onLinkClick(event)">Deposit</a>
+            <a href="/withdraw" onclick="onLinkClick(event)">Withdraw</a>
+            <a href="/allData" onclick="onLinkClick(event)">All Data</a>
+        </div>    
+        </section>
+        <section><h2>All Data</h2></section>
+        <section>
+            <div id="allDataContainer"></div>
+        </section>
+    </template>
+
+</body>
+</html>

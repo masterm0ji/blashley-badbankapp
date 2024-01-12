@@ -1,0 +1,129 @@
+body {
+    font-family: Ariel, Helvetica, sans-serif;
+}
+
+form {
+    border: 5px solid #f5eae2; 
+}
+
+input[type=email] && input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #e36b3753;
+    box-sizing: border-box; 
+}
+
+button {
+    background-color: #e35215;
+    color: #ffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+}
+
+.logo {
+    height: 200px;
+    vertical-align: middle;
+}
+
+section {
+    display: flex;
+}
+
+.logoContainer {
+    margin-right: 20px;
+}
+
+.flexContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loginFormContainer {
+    max-width: 800px;
+}
+
+.navbar {
+    width: 100%;
+    background-color:#261103;
+    overflow:auto;
+}
+
+.navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #fb9660;
+}
+
+.active {
+    background-color: #ef6d10
+}
+
+@media screen and (max-width: 500px) {
+    .navbar a{
+        float: none;
+        display: block;
+    }
+}
+
+.createAccount {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.createAccount label {
+    margin: 5px 10px 5px 0;
+}
+
+.createAccount input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color:#fff;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .createAccount input {
+        margin: 10px 0;
+    }
+}
+
+.createAccount {
+    flex-direction: column; 
+    align-items: stretch;
+}
