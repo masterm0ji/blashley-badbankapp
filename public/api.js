@@ -20,7 +20,7 @@ export async function create() {
 
 export async function registerAccount(account) {
     try {
-        const response = await fetch('', { 
+        const response = await fetch('https://intense-castle-57913-add8cf75d51c.herokuapp.com/', { 
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:account 
@@ -33,7 +33,12 @@ export async function registerAccount(account) {
 }
 
 export async function fetchUserData() {
-    // insert API call
+    const response = await fetch('https://intense-castle-57913-add8cf75d51c.herokuapp.com/');
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
 }
 
 export const accountDataArray = [];
