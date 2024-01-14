@@ -11,8 +11,7 @@
   "tasks": {
     "build": {
       "name": "build",
-      "command": "yarn build",
-      "runAtStart": false
+      "command": "yarn build"
     }
   }
 }
