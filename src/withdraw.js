@@ -19,7 +19,7 @@ function Withdraw() {
         alert("Insufficient fundssss, you aint got no money!");
       }
     } else {
-      alert("Please enter a positive number");
+      alert("we don't count negative dollars here");
     }
   };
 
@@ -47,3 +47,4 @@ function Withdraw() {
     </>
   );
 }
+
