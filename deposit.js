@@ -1,36 +1,44 @@
-import React, { useState } from 'react';
+function Deposit() {
+  const ctx = React.useContext(UserContext);
 
-const Deposit = () => {
-  const [balance, setBalance] = useState(25);
-  const [deposit, setDeposit] = useState(0);
+  const [depositAmount, setDepositAmount] = React.useState("");
 
-  const handleDepositChange = (event) => {
-    setDeposit(event.target.value);
-  };
+  const handleDeposit = (index) => {
+    const amount = parseFloat(depositAmount);
 
-  const handleDepositSubmit = (event) => {
-    event.preventDefault();
-    if (deposit < 0.01 || deposit > 10000) {
-      alert("You can only deposit between $0.01 and $10,000.");
+    if (!isNaN(amount) && amount > 0) {
+      const updatedUsers = [...ctx.users];
+      updatedUsers[index].balance += amount;
+      ctx.setUsers(updatedUsers);
+      setDepositAmount("");
     } else {
-      setBalance(balance + Number(deposit));
-      setDeposit(0);
+      alert("Please enter a valid positive number for the deposit amount.");
     }
   };
 
   return (
-    <div className="container">
+    <>
+      <span className="placeholder col-12 bg-dark"></span>
       <h1>Deposit</h1>
-      <form onSubmit={handleDepositSubmit}>
-        <div className="form-group">
-          <label htmlFor="deposit">Deposit Amount:</label>
-          <input type="number" className="form-control" id="deposit" value={deposit} onChange={handleDepositChange} required />
+      <span className="placeholder col-12 bg-dark"></span>
+      {ctx.users.map((user, index) => (
+        <div key={index} className="card">
+          <div className="card-body">
+            <h6>Name: {user.name}</h6>
+            <p>Email: {user.email}</p>
+            <p>Password: {user.password}</p>
+            <p>Balance: {user.balance}</p>
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Deposit Amount"
+              value={depositAmount}
+              onChange={(e) => setDepositAmount(e.target.value)}
+            />
+            <button onClick={() => handleDeposit(index)}>Submit</button>
+          </div>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-      <p>Your balance is: ${balance.toFixed(2)}</p>
-    </div>
+      ))}
+    </>
   );
 }
-
-window.Deposit = Deposit;
