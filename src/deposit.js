@@ -2,6 +2,7 @@ function Deposit() {
   const ctx = React.useContext(UserContext);
 
   const [depositAmount, setDepositAmount] = React.useState("");
+  const [update, setUpdate] = React.useState(0);
 
   const handleDeposit = (index) => {
     const amount = parseFloat(depositAmount);
@@ -11,6 +12,7 @@ function Deposit() {
       updatedUsers[index].balance = parseFloat(updatedUsers[index].balance + amount).toFixed(2);
       ctx.setUsers(updatedUsers);
       setDepositAmount("");
+      setUpdate(update + 1);
     } else {
       alert("Please enter a valid positive number for the deposit amount.");
     }
